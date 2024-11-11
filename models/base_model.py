@@ -1,4 +1,3 @@
-# base_model.py
 from utils.file_handler import write_json_file, read_json_file
 
 

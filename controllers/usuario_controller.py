@@ -7,7 +7,6 @@ import utils.console_handler as console
 class UsuarioController:
     @classmethod
     def start(cls) -> None:
-        # Cargar los usuarios desde el archivo JSON al iniciar
         Usuario.load()
         console.clear()
         while True:
@@ -18,23 +17,21 @@ class UsuarioController:
             print("4. Eliminar Usuario")
             print("5. Salir")
             opcion = input("Seleccione una opción: ")
-            try:
-                if opcion == '1':
-                    cls.add()
-                elif opcion == '2':
-                    cls.list_all()
-                elif opcion == '3':
-                    cls.update()
-                elif opcion == '4':
-                    cls.delete()
-                elif opcion == '5':
-                    Usuario.save()
-                    print("Datos guardados. Saliendo...")
-                    break
-                else:
-                    print("Opción inválida.")
-            except ValueError as e:
-                print(colored(f"Error: {e}", "red"))
+            
+            if opcion == '1':
+                cls.add()
+            elif opcion == '2':
+                cls.list_all()
+            elif opcion == '3':
+                cls.update()
+            elif opcion == '4':
+                cls.delete()
+            elif opcion == '5':
+                Usuario.save()
+                print("Datos guardados. Saliendo...")
+                break
+            else:
+                print(colored("Opción inválida.", "red"))
 
     @classmethod
     def add(cls) -> None:
